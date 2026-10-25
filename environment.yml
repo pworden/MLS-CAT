@@ -1,0 +1,15 @@
+name: mage
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python>=3.10
+  - blast
+  - mafft
+  - trimal
+  - raxml
+  - pip
+  - pip:
+      - biopython
+      - -e .

@@ -1,0 +1,37 @@
+Pathovar	Number of isolates	ST	nusG	rpmA	arfB	rplQ	queD	fdx	exbD	Minimum number of allele distance to another ST
+X. citri pv.
+citri	355	1	1	1	1	1	1	1	1	4
+glycines	19	2	2	2	2	2	1	2	2	5
+aurantifolii_B	3	3	3	3	3	3	2	3	3	3
+malvacearum	16	4	4	4	4	4	1	4	4	4
+fuscans lineage 1 (L1)	35	5	5	5	3	5	3	3	5	4
+mangiferaindicae	6	6	6	2	5	1	1	1	6	4
+Non-fuscous L3	7	7	7	6	3	6	4	5	5	3
+anacardii pigmented	9	8	8	3	9	3	5	6	3	3
+anacardii non-pigmented	2	9	8	6	3	3	5	6	5	3
+vignicola-clade 1	3	10	8	6	3	6	7	11	5	3
+aracearuma	5	11	8	6	3	7	10	13	11	4
+sesbaniae	4	12	8	6	8	1	3	10	5	2
+Non-fuscous L2	11	13	8	6	8	5	3	9	5	2
+thirumalacharii	1	14	8	6	10	5	12	6	3	4
+vignicola-clade 2	1	15	8	9	3	5	8	12	9	5
+tectnoaeb	2	16	8	10	8	5	11	14	3	4
+punicae	14	17	9	7	6	2	1	7	7	5
+viticola	5	18	10	8	7	1	6	8	8	3
+aurantifolii_C	7	19	11	3	3	3	9	3	10	3
+Novel profiles
+X. campestris pv. olitorii NCPPB 464	1	20	12	7	11	5	1	15	12	5
+X. axonopodis pv. eucalyptorum LPF 602	1	21	8	3	12	3	3	3	3	3
+X. campestris pv. vitiswoodrowii LMG 954	1	22	13	11	13	8	6	16	13	5
+X. cissicola LMG 21719 and CCUG 18839	2	23	14	12	14	9	6	8	8	4
+X. campestris pv. bilvae NCPPB 3213	1	24	15	13	15	1	1	1	14	1
+X. phaseoli pv. phaseoli NCPPB 556, NCPPB 2064, and NCPPB 557 (proposed name: pv. lablab clade 2)	3	25	16	14	16	1	13	17	15	4
+X. axonopodis pv. khayae LMG 753	1	26	17	15	3	1	6	18	8	4
+X. campestris pv. vitistrifoliae LMG 940	1	27	18	11	7	1	6	19	8	3
+X. campestris pv. vitiscarnosae LMG 939 and X. axonopodis pv. martyniicola LMG 9049	2	28	10	16	17	1	6	8	16	3
+X. axonopodis pv. bauhiniae LMG 548	1	29	19	17	18	1	6	20	17	5
+X. axonopodis pv. cajani LMG 558	1	30	20	18	19	1	1	21	18	4
+X. axonopodis pv. melhusii LMG 9050	1	31	21	4	4	5	1	8	8	4
+X. axonopodis pv. clitoriae LMG 9045	1	32	22	1	20	1	1	22	18	4
+X. campestris pv. azadirachtae LMG 543	1	33	15	13	21	1	1	1	14	1
+X. phaseoli pv. phaseoli NCPPB 1713 (proposed name: pv. lablab clade 1)	1	34	16	14	22	1	14	23	19	4
