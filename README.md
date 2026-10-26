@@ -28,14 +28,39 @@ Runs tseemann/mlst on the input genomes/amplicons to assign Sequence Types (STs)
 
 ## Installation
 
-Navigate to the package directory first, then install:
-
+Git clone this pipeline
 ```bash
-# must be inside the MLS-Khajiit directory or the install will fail
-cd /path/to/MLS-Khajiit
+git clone https://github.com/pworden/MLS-Khajiit.git
+```
+
+Use the environment.yml file to generate a conda environment called `mage`
+```bash
+conda env create -f /path/to/MLS-Khajiit/environment.yml
+```
+
+Activate the newly created conda environment
+```bash
 conda activate mage
+```
+
+Move into the newly (github) cloned 'MLS-Khajiit' directory on your computer
+```bash
+cd MLS-Khajiit
+```
+
+Check this directory contains a pyproject.toml file
+
+Install the MLS-Khajiit package
+```bash
 pip install -e .
 ```
+
+Or (if you want to give the full path)
+```bash
+pip install -e /path/to/MLS-Khajiit
+```
+
+If you already have a `mage` environment with `blastn`, `mafft`, `trimal`, and `raxml` installed, skip the `conda env create` step above and just `conda activate mage` then `pip install -e .`.
 
 ---
 
