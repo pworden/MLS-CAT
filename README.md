@@ -33,14 +33,14 @@ Git clone this pipeline
 git clone https://github.com/pworden/MLS-Khajiit.git
 ```
 
-Use the environment.yml file to generate a conda environment called `mage`
+Use the environment.yml file to generate a conda environment called `MLS-Khajiit`
 ```bash
 conda env create -f /path/to/MLS-Khajiit/environment.yml
 ```
 
 Activate the newly created conda environment
 ```bash
-conda activate mage
+conda activate MLS-Khajiit
 ```
 
 Move into the newly (github) cloned 'MLS-Khajiit' directory on your computer
