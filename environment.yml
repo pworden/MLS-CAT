@@ -110,4 +110,3 @@ dependencies:
       - fastroot==1.5
       - sangopore-mlsa-mlst==0.1.0
       - treeswift==1.1.45
-prefix: /home/wordenp/mambaforge/envs/mage
