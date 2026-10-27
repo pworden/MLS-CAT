@@ -108,5 +108,5 @@ dependencies:
   - pip:
       - cvxopt==1.3.3
       - fastroot==1.5
-      - sangopore-mlsa-mlst==0.1.0
       - treeswift==1.1.45
+      - -e .
