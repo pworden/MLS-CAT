@@ -1,4 +1,4 @@
-name: mage
+name: mls_khajiit
 channels:
   - conda-forge
   - bioconda
