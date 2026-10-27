@@ -830,8 +830,15 @@ def run_mlst_typing(input_query_sequences, output, query_seq_extension,
 
     output_tsv = os.path.join(output, "mlst_results.tsv")
 
-    # Build mlst command
-    cmd = ["conda", "run", "-n", "mlst", "mlst"]
+    # Build mlst command — prefer mlst directly on PATH (e.g. installed into the
+    # same env as this script); fall back to a separate conda env named "mlst"
+    # if it isn't.
+    if shutil.which("mlst"):
+        cmd = ["mlst"]
+        log.info("  Using mlst found on PATH")
+    else:
+        cmd = ["conda", "run", "-n", "mlst", "mlst"]
+        log.info("  mlst not found on PATH — using conda env 'mlst'")
 
     if custom_mlst_db:
         blast_db = os.path.join(custom_mlst_db, "blast", "mlst")
