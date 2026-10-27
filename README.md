@@ -33,14 +33,26 @@ Git clone this pipeline
 git clone https://github.com/pworden/MLS-Khajiit.git
 ```
 
-Use the environment.yml file to generate a conda environment called `MLS-Khajiit`
+### 1. MLST typing environment (only needed for `--run-mlst`/`--mlst-only` within "mls_khajiit.py")
+
+MLST typing (Stage 7) always shells out to a separate conda environment named exactly `mlst` — this is hardcoded in the script and is independent of whatever environment you install the pipeline itself into below. Create it first, once:
+
+```bash
+conda create -n mlst -c conda-forge -c bioconda -c defaults mlst
+```
+
+This installs tseemann/mlst, along with its own `blastn` and `any2fasta`. No activation needed afterwards — the script calls it directly via `conda run -n mlst mlst ...`.
+
+### 2. Main pipeline environment
+
+Use the environment.yml file to generate a conda environment called `mage`
 ```bash
 conda env create -f /path/to/MLS-Khajiit/environment.yml
 ```
 
 Activate the newly created conda environment
 ```bash
-conda activate MLS-Khajiit
+conda activate mage
 ```
 
 Move into the newly (github) cloned 'MLS-Khajiit' directory on your computer
@@ -50,7 +62,7 @@ cd MLS-Khajiit
 
 Check this directory contains a pyproject.toml file
 
-Install the MLS-Khajiit package
+`environment.yml` already installs the MLS-Khajiit package itself (via its `-e .` line), so this step is normally done automatically. If you need to (re)install it manually:
 ```bash
 pip install -e .
 ```
@@ -60,14 +72,14 @@ Or (if you want to give the full path)
 pip install -e /path/to/MLS-Khajiit
 ```
 
-If you already have a `mage` environment with `blastn`, `mafft`, `trimal`, and `raxml` installed, skip the `conda env create` step above and just `conda activate mage` then `pip install -e .`.
+If you already have an environment with `blastn`, `mafft`, `trimal`, and `raxml` installed, skip the `conda env create` step above and just `conda activate` it then `pip install -e .`.
 
 ---
 
 ## Requirements
 
-- Conda environment `mage` containing: `blastn`, `mafft`, `trimal`, `raxml`, `biopython`
-- Conda environment `mlst` containing: tseemann/mlst, `blastn`, `any2fasta`
+- Conda environment named exactly `mlst` containing: tseemann/mlst, `blastn`, `any2fasta`
+- Conda environment `mage` (or any environment, any name) containing: `blastn`, `mafft`, `trimal`, `raxml`, `biopython`
 
 ---
 
