@@ -1,4 +1,4 @@
-name: mls_khajiit
+name: MLS_Khajiit
 channels:
   - conda-forge
   - bioconda
