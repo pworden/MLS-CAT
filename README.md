@@ -33,26 +33,16 @@ Git clone this pipeline
 git clone https://github.com/pworden/MLS-Khajiit.git
 ```
 
-### 1. MLST typing environment (only needed for `--run-mlst`/`--mlst-only` within "mls_khajiit.py")
+### 1. Main pipeline environment
 
-MLST typing (Stage 7) always shells out to a separate conda environment named exactly `mlst` — this is hardcoded in the script and is independent of whatever environment you install the pipeline itself into below. Create it first, once:
-
-```bash
-conda create -n mlst -c conda-forge -c bioconda -c defaults mlst
-```
-
-This installs tseemann/mlst, along with its own `blastn` and `any2fasta`. No activation needed afterwards — the script calls it directly via `conda run -n mlst mlst ...`.
-
-### 2. Main pipeline environment
-
-Use the environment.yml file to generate a conda environment called `mage`
+Use the environment.yml file to generate a conda environment called `MLS_Khajiit`
 ```bash
 conda env create -f /path/to/MLS-Khajiit/environment.yml
 ```
 
 Activate the newly created conda environment
 ```bash
-conda activate mage
+conda activate MLS_Khajiit
 ```
 
 Move into the newly (github) cloned 'MLS-Khajiit' directory on your computer
@@ -74,12 +64,29 @@ pip install -e /path/to/MLS-Khajiit
 
 If you already have an environment with `blastn`, `mafft`, `trimal`, and `raxml` installed, skip the `conda env create` step above and just `conda activate` it then `pip install -e .`.
 
+### 2. MLST typing environment (only needed for `--run-mlst`/`--mlst-only` within "mls_khajiit.py")
+
+MLST typing (Stage 7) needs tseemann/mlst available. The script checks for an `mlst` command directly on `PATH` first; if it finds one, it uses that. So you have two options:
+
+**Option A — install `mlst` into the `MLS_Khajiit` environment set up in step 1** (recommended — only one environment to manage, and the script will use it directly):
+```bash
+conda install -n MLS_Khajiit -c conda-forge -c bioconda -c defaults mlst
+```
+
+**Option B — install it into a separate environment named exactly `mlst`**:
+```bash
+conda create -n mlst -c conda-forge -c bioconda -c defaults mlst
+```
+If no `mlst` is found on `PATH`, the script falls back to this specific env name, calling it via `conda run -n mlst mlst ...`. No activation needed for this option — the script calls it directly.
+
+Either way installs tseemann/mlst, along with its own `blastn` and `any2fasta`.
+
 ---
 
 ## Requirements
 
-- Conda environment named exactly `mlst` containing: tseemann/mlst, `blastn`, `any2fasta`
-- Conda environment `mage` (or any environment, any name) containing: `blastn`, `mafft`, `trimal`, `raxml`, `biopython`
+- Conda environment `MLS_Khajiit` (or any environment, any name) containing: `blastn`, `mafft`, `trimal`, `raxml`, `biopython`
+- `mlst` (tseemann/mlst), `blastn`, `any2fasta` — recommended inside the same `MLS_Khajiit` environment above (the script checks `PATH` first); otherwise in a separate conda environment named exactly `mlst`, which the script falls back to
 
 ---
 
@@ -125,7 +132,7 @@ output/
 ### Full MLSA + MLST pipeline (multi-allele scheme with custom database)
 
 ```bash
-conda activate mage
+conda activate MLS_Khajiit
 
 mls-khajiit \
     --input-query-sequences /path/to/genomes \

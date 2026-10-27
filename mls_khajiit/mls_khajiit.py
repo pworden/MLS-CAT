@@ -34,7 +34,7 @@ NOTE: For a species not in the standard pubmlst database, add the scheme to tsee
       first — see the README's "Custom MLST schemes" section.
 
 USAGE:
-conda activate mage
+conda activate MLS_Khajiit
 
 # 1. MLSA tree only — reference genomes, single representative per gene:
 mls-khajiit \
