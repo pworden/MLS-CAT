@@ -84,6 +84,27 @@ output/
 
 ## Usage
 
+### Check the install with the test data 
+
+conda activate MLS_Khajiit
+BASE="/path/to/MLS_Khajiit"
+
+mls-khajiit \
+    --input-query-sequences $BASE/input/All_Samples \
+    --target-typing-genes $BASE/input/X_citri_MLST_Scheme \
+    --output $BASE/output \
+    --query-seq-extension fasta \
+    --type-genes-extension tfa \
+    --multi-allele \
+    --min-genes 3 \
+    --run-mlst \
+    --custom-mlst-db $BASE/input/X_citri_MLST_DB \
+    --mlst-scheme-name xcitri \
+    --outgroup $BASE/input/All_Samples/X_arboricola_CFBP_2528_GCF_001013475.1__outgroup.fasta \
+    --threads 8 \
+    --verbose --force
+
+
 ### Full MLSA + MLST pipeline (multi-allele scheme with custom database)
 
 ```bash
