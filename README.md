@@ -1,6 +1,6 @@
 # MLS-Khajiit
 
-Unified MLSA (Multilocus Sequence Analysis) and MLST (Multilocus Sequence Typing) phylogenetic pipeline. Can be run as a combined MLSA + MLST workflow, or as MLST-only.
+Unified MLSA (Multilocus Sequence Analysis) and MLST (Multilocus Sequence Typing) phylogenetic pipeline. Can be run as a combined MLSA + MLST workflow, or as MLSA-only or MLST-only.
 
 MLSA pipeline based on MAGe by Jwebster89 (https://github.com/Jwebster89/mage).
 MLST typing powered by tseemann/mlst (https://github.com/tseemann/mlst).
@@ -22,7 +22,7 @@ MLST typing powered by tseemann/mlst (https://github.com/tseemann/mlst).
 
 ### MLST typing (Stage 7)
 
-Runs tseemann/mlst on the input genomes/amplicons to assign Sequence Types (STs). Supports both the standard pubmlst database and custom schemes added directly to tseemann/mlst (see "Custom MLST schemes" below).
+Runs tseemann/mlst on the input genomes/amplicons to assign Sequence Types (STs). Custom schemes can be added to tseemann/mlst (see "Custom MLST schemes" below).
 
 ---
 
@@ -35,15 +35,13 @@ conda env create -f environment.yml
 conda activate MLS_Khajiit
 ```
 
-This sets up everything needed — `blastn`, `mafft`, `trimal`, `raxml`, `mlst`, and the `mls-khajiit` command itself.
-
-Already have an environment with those tools installed? Just activate it and run `pip install -e .` instead.
+This installs a number of packages including — `blastn`, `mafft`, `trimal`, `raxml`, `mlst`, and the `mls-khajiit` command itself.
 
 ---
 
 ## Requirements
 
-- Conda environment `MLS_Khajiit` (or any environment, any name) containing: `blastn`, `mafft`, `trimal`, `raxml`, `biopython`, `mlst` (all included by `environment.yml`)
+- Conda environment `MLS_Khajiit` (or environment renamed as preferred).
 
 ---
 
@@ -189,7 +187,7 @@ mls-khajiit \
 
 ## Custom MLST schemes
 
-For species not in the standard pubmlst database, add the scheme directly to tseemann/mlst following its own instructions (https://github.com/tseemann/mlst#adding-a-scheme).
+For species not in the standard pubmlst database, add the scheme directly to tseemann/mlst following these instructions (https://github.com/tseemann/mlst#adding-a-scheme).
 
 ### Adding a scheme
 
@@ -211,6 +209,6 @@ Once added this way, use it with `mls-khajiit` via `--mlst-scheme-name yourspeci
 
 ## Notes
 
-- By default the final tree is MinVar-rooted and saved as `MAGE_tree_output_MinVarRooted.final`, uploadable directly to iTOL for visualisation. Pass `--outgroup FASTA_PATH` to root on a specific taxon instead (writes `MAGE_tree_output_OutgroupRooted.final`), or `--no-minvar-root` to skip rooting entirely and root manually (e.g. in iTOL).
+- By default the final tree is MinVar-rooted and saved as `MAGE_tree_output_MinVarRooted.final`, this is in newick format (.nwk). Pass `--outgroup FASTA_PATH` to root on a specific taxon instead (writes `MAGE_tree_output_OutgroupRooted.final`), or `--no-minvar-root` to skip rooting entirely and root manually (e.g. in iTOL).
 - Genomes with fewer than `--min-genes` extracted genes are excluded from the supermatrix and tree but are still typed by MLST if `--run-mlst` or `--mlst-only` is set.
 - All pipeline progress and tool output is recorded in `pipeline.log`.
