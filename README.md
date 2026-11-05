@@ -5,9 +5,7 @@ Unified MLSA (Multilocus Sequence Analysis) and MLST (Multilocus Sequence Typing
 MLSA pipeline based on MAGe by Jwebster89 (https://github.com/Jwebster89/mage).
 MLST typing powered by tseemann/mlst (https://github.com/tseemann/mlst).
 
-## MLS-Khajiit
-
-### Why **Khajiit** in MLS-Khajiit?**
+## Why `Khajiit` in MLS-Khajiit?**
 The Khajiit are the cat-like traders of *The Elder Scrolls* games.
 
 ---
