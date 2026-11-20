@@ -1,7 +1,7 @@
 
 #!/usr/bin/env python3
 """
-mls_khajiit.py — Unified MLST/MLSA phylogenetic pipeline
+mls_cat.py — Unified MLST/MLSA phylogenetic pipeline
 
 Combines BLAST extraction, alignment, supermatrix construction, RAxML tree inference,
 MinVar rooting, and tseemann/mlst typing into a single script. Input query sequences
@@ -34,10 +34,10 @@ NOTE: For a species not in the standard pubmlst database, add the scheme to tsee
       first — see the README's "Custom MLST schemes" section.
 
 USAGE:
-conda activate MLS_Khajiit
+conda activate MLS-CAT
 
 # 1. MLSA tree only — reference genomes, single representative per gene:
-mls-khajiit \
+mls-cat \
     --input-query-sequences /path/to/genomes \
     --target-typing-genes /path/to/custom_mlst_db/yourspecies \
     --output /path/to/output \
@@ -48,7 +48,7 @@ mls-khajiit \
     --verbose --force
 
 # 2. Amplicons — MLSA + MLST with custom scheme; use --no-trim-amplicon-input for amplicon-only input:
-mls-khajiit \
+mls-cat \
     --input-query-sequences /path/to/amplicon_consensus_sequences \
     --target-typing-genes /path/to/custom_mlst_db/yourspecies \
     --output /path/to/output \
@@ -63,7 +63,7 @@ mls-khajiit \
     --verbose --force
 
 # 3. Combined reference genomes + amplicons — MLSA tree (trimal appropriate for mixed input):
-mls-khajiit \
+mls-cat \
     --input-query-sequences /path/to/combined_input \
     --target-typing-genes /path/to/custom_mlst_db/yourspecies \
     --output /path/to/output \
@@ -74,7 +74,7 @@ mls-khajiit \
     --verbose --force
 
 # 4. Full MLSA + MLST with matched identity thresholds and outgroup rooting:
-mls-khajiit \
+mls-cat \
     --input-query-sequences /path/to/combined_input \
     --target-typing-genes /path/to/custom_mlst_db/yourspecies \
     --output /path/to/output \
@@ -1020,7 +1020,7 @@ def main():
     setup_logging(os.path.join(args.output, "pipeline.log"), args.verbose)
 
     log.info("=" * 80)
-    log.info("mls_khajiit.py — Unified MLST/MLSA Phylogenetic Pipeline")
+    log.info("mls_cat.py — Unified MLST/MLSA Phylogenetic Pipeline")
     log.info("=" * 80)
 
     # Validate inputs

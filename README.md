@@ -1,18 +1,15 @@
-# MLS-Khajiit
+# MLS-CAT
 
 Unified MLSA (Multilocus Sequence Analysis) and MLST (Multilocus Sequence Typing) phylogenetic pipeline. Can be run as a combined MLSA + MLST workflow, or as MLSA-only or MLST-only.
 
 MLSA pipeline based on MAGe by Jwebster89 (https://github.com/Jwebster89/mage).
 MLST typing powered by tseemann/mlst (https://github.com/tseemann/mlst).
 
-## Why `Khajiit` in MLS-Khajiit?**
-The Khajiit are the cat-like traders of *The Elder Scrolls* games.
-
 ---
 
 ## What it does
 
-### MLSA pipeline (Stages 1–6)
+### MLS-CAT pipeline (Stages 1–6)
 
 | Stage | Description |
 |-------|-------------|
@@ -32,19 +29,19 @@ Runs tseemann/mlst on the input genomes/amplicons to assign Sequence Types (STs)
 ## Installation
 
 ```bash
-git clone https://github.com/pworden/MLS-Khajiit.git
-cd MLS-Khajiit
+git clone https://github.com/pworden/MLS-CAT.git
+cd MLS-CAT
 conda env create -f environment.yml
-conda activate MLS_Khajiit
+conda activate MLS-CAT
 ```
 
-This installs a number of packages including — `blastn`, `mafft`, `trimal`, `raxml`, `mlst`, and the `mls-khajiit` command itself.
+This installs a number of packages including — `blastn`, `mafft`, `trimal`, `raxml`, `mlst`, and the `mls-cat` command itself.
 
 ---
 
 ## Requirements
 
-- Conda environment `MLS_Khajiit` (or environment renamed as preferred).
+- Conda environment `MLS-CAT` (or environment renamed as preferred).
 
 ---
 
@@ -89,10 +86,10 @@ output/
 
 ### Check the install with the test data 
 
-conda activate MLS_Khajiit
-BASE="/path/to/MLS_Khajiit"
+conda activate MLS-CAT
+BASE="/path/to/MLS-CAT"
 
-mls-khajiit \
+mls-cat \
     --input-query-sequences $BASE/input/All_Samples \
     --target-typing-genes $BASE/input/X_citri_MLST_Scheme \
     --output $BASE/output \
@@ -111,9 +108,9 @@ mls-khajiit \
 ### Full MLSA + MLST pipeline (multi-allele scheme with custom database)
 
 ```bash
-conda activate MLS_Khajiit
+conda activate MLS-CAT
 
-mls-khajiit \
+mls-cat \
     --input-query-sequences /path/to/genomes \
     --target-typing-genes /path/to/mlst_genes \
     --output /path/to/output \
@@ -130,7 +127,7 @@ mls-khajiit \
 ### MLSA only (single representative sequence per gene, no MLST)
 
 ```bash
-mls-khajiit \
+mls-cat \
     --input-query-sequences /path/to/amplicons \
     --target-typing-genes /path/to/mlst_genes \
     --output /path/to/output \
@@ -143,7 +140,7 @@ mls-khajiit \
 ### MLST only (no tree building)
 
 ```bash
-mls-khajiit \
+mls-cat \
     --input-query-sequences /path/to/genomes \
     --output /path/to/output \
     --query-seq-extension fna \
@@ -225,7 +222,7 @@ For species not in the standard pubmlst database, add the scheme directly to tse
 4. Confirm it's registered: `mlst --info | grep yourspecies`.
 5. Test it: `mlst --scheme yourspecies some_genome.fasta`.
 
-Once added this way, use it with `mls-khajiit` via `--mlst-scheme-name yourspecies` — no `--custom-mlst-db` needed, since the scheme is now part of mlst's own database.
+Once added this way, use it with `mls-cat` via `--mlst-scheme-name yourspecies` — no `--custom-mlst-db` needed, since the scheme is now part of mlst's own database.
 
 `--custom-mlst-db` (see Arguments below) is for pointing at a separate, self-built database elsewhere instead of touching the bundled mlst install — it expects `DIR/yourspecies/yourspecies.txt` + `.tfa` files, and `DIR/blast/mlst*` (a `makeblastdb` nucleotide database built from those alleles, with headers prefixed `yourspecies.`). Building that database isn't covered by this tool; the steps above are the simpler path for most cases.
 

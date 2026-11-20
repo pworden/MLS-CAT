@@ -3,9 +3,9 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "mls-khajiit"
+name = "mls-cat"
 version = "0.1.0"
-description = "MLS-Khajiit: unified MLSA/MLST phylogenetic pipeline — BLAST extraction, alignment, supermatrix, RAxML tree (MinVar or outgroup rooting), and tseemann/mlst typing"
+description = "MLS-CAT: unified MLSA/MLST phylogenetic pipeline — BLAST extraction, alignment, supermatrix, RAxML tree (MinVar or outgroup rooting), and tseemann/mlst typing"
 authors = [
     { name = "Paul", email = "paul.j.worden@gmail.com" }
 ]
@@ -18,7 +18,7 @@ dependencies = [
 ]
 
 [project.scripts]
-mls-khajiit = "mls_khajiit.mls_khajiit:main"
+mls-cat = "mls_cat.mls_cat:main"
 
 [tool.setuptools]
 include-package-data = true

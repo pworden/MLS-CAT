@@ -12,5 +12,5 @@ build/
 local_examples.txt
 
 # Test run output — local only, not for version control
-mls_khajiit_test/output/*
-!mls_khajiit_test/output/.gitkeep
+mls_cat_test/output/*
+!mls_cat_test/output/.gitkeep
